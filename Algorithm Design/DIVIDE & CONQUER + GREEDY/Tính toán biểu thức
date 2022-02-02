@@ -1,3 +1,16 @@
+Cho một biểu thức toán học chỉ chứa số nguyên và các toán tử cộng, trừ, nhân. Dĩ nhiên các phép toán này có thứ tự ưu tiên riêng tuy
+nhiên ta có thể thay đổi thứ tự này bằng cách đặt dấu ngoặc vào các vị trí phù hợp. Hãy tìm tất cả các giá trị có thể có của biểu thức 
+khi ta thay đổi thứ tự các phép toán
+
+INPUT
+
+Một chuỗi chỉ chứa các số nguyên kèm cùng các dấu + , - , *, tối đa có 15 phép toán
+
+OUTPUT
+
+Tất cả các giá trị có thể có của biểu thức. Mỗi giá trị xuất trên một hàng và theo thứ tự tăng dần. Nếu có nhiều cách khác nhau để tính ra 
+cùng một giá trị vẫn xuất giá trị đó nhiều lần.
+
 #include <bits/stdc++.h>
 #define N 20
 #define ll long long
