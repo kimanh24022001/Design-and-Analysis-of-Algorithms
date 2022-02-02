@@ -1,3 +1,22 @@
+Nhân dịp cuối năm, lớp bạn Bình tổ chức chơi trò bóp bong bóng lấy quà. Có một hàng bong bóng được treo trên cao,
+trong mỗi bong bóng đã có chứa một con số bí ẩn. Khi bóp 1 bong bóng người chơi sẽ nhận được l * x * r VND, trong 
+đó x là số bí ẩn của bong bóng vừa bị bóp và cò l và r là số bí ẩn của bong bóng liền kề bên trái và bên phải (nếu 
+bên phải hoặc trái không còn bóng thì khỏi nhân bóng đó). Bạn Bình do có tay trong nên đã biết hết số bí ẩn của mỗi 
+quả bóng. Hãy tính xem số tiền tối đa Bình có thể thu về là bao nhiêu.
+
+ 
+
+INPUT
+
+Dòng đầu tiên chứa số n, đây là số lượng bong bóng, n<=20.
+
+n dòng tiếp theo mỗi dòng là một số nguyên. Đây là số bí ẩn của từng quả bóng theo thứ tự.
+
+ 
+
+OUTPUT
+
+Số tiền tối đa Bình kiếm được.
 #include <bits/stdc++.h>
 #define N 200000
 #define ll long long
