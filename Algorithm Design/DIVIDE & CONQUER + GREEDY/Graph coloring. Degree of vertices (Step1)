@@ -1,3 +1,25 @@
+ĐỂ GIẢI ĐƯỢC BÀI TOÁN "TÔ MÀU ĐỒ THỊ", TA CẦN TIẾN HÀNH QUA NHIỀU BƯỚC XỬ LÝ. MẠNH DẠN ĐOÁN LÀ SV SẼ GẶP NHIỀU KHÓ KHĂN KHI GIẢI BÀI NÀY NÊN GV ĐÃ 
+CHIA NHỎ BÀI TOÁN RA THÀNH NHỮNG BƯỚC XỬ LÝ CON. VÀ BÀI NÀY TƯƠNG ỨNG VỚI BƯỚC 1 TRONG QUY TRÌNH GIẢI QUYẾT BÀI TOÁN TÔ MÀU.
+
+Cho một đơn đồ thị vô hướng, cho biết mỗi đỉnh trong đồ thị có bậc bao nhiêu.
+
+ 
+
+INPUT:
+
+Dòng đầu tiên chứa 02 số v, e, đây lần lượt là số đỉnh, số cạnh của đồ thị
+
+Dòng tiếp theo chứa v chuỗi, mỗi chuỗi bao một hoặc nhiều ký tự hoa trong bảng chữ cái Tiếng Anh và cách nhau bởi khoảng trắng. Đây là danh sách tên các đỉnh của đồ thị.
+
+e dòng tiếp theo, mỗi dòng chứa 02 chuỗi u và i (cách nhau bởi khoảng trắng), thể hiện việc có một cạnh nối giữa đỉnh u và đỉnh i trong đồ thị.
+
+ 
+
+OUTPUT:
+
+Xuất ra trên một dòng bậc của mỗi đỉnh, thứ tự các đỉnh ứng với thứ tự chúng xuất hiện trong dòng thứ 2 của input.
+
+ 
 #include <iostream>
 using namespace std;
 
