@@ -1,0 +1,57 @@
+import sys
+
+word=str(input()).upper()
+a,used=[],[]
+dx=[-1,-1,-1,0,0,1,1,1]
+dy=[-1,0,1,-1,1,-1,0,1]
+m,n=0,0
+s=""
+check=[]
+count=[0]
+while 1:
+	p=[]
+	use=[]
+	line = sys.stdin.readline().rstrip('\n')
+	if line == ".":
+		break
+	if len(line)>=1:
+		for i in line:
+			p.append(i.upper())
+			use.append(int(0))
+		a.append(p)
+		used.append(use)
+		m=m+1
+		n=len(line)
+def findWord( i,  j,  s ):
+	for  it in range(0,8):
+		i1=i+dx[it]
+		j1=j+dy[it]
+		if i1>=0 and i1<m and j1>=0 and j1<n and used[i1][j1]==0 and (s+a[i1][j1]) in word :
+			s=s+a[i1][j1]
+			used[i1][j1]=1
+			if len(word)==len(s) and len(check)==0 :  
+				check.append(0)
+				used[i1][j1]=0
+				return
+			else:
+				findWord(i1, j1, s)
+			used[i][j]=0	
+
+for i in range(m)	:	
+	
+	for j in range(n)	:
+		if a[i][j]==word[0]:
+			s=a[i][j]
+			used[i][j]=1
+			findWord(i,j,s)
+			if len(check)>0:
+				break
+	if len(check)>0:
+		break	
+	if len(word)==35:
+		check.append(0)
+		break
+if len(check)>0:
+	print("true")
+else:
+	print("false")
