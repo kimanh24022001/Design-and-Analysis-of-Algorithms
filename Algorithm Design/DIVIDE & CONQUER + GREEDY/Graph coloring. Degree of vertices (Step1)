@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int v,e,color[100];
+	string  c[100],a,b;
+	cin>>v>>e;
+	for (int i=0;i<v;i++){
+		cin>>c[i];
+		color[i]=0;
+	}
+	for (int i=0;i<e;i++){
+     	cin>>a>>b;
+     	for (int i=0;i<v;i++){
+	     	if (c[i]==a ){
+		        color[i]+=1;
+	     	}
+	     	if (c[i]==b){
+		        color[i]+=1;
+	     	}
+     	}
+	}
+    for (int i=0;i<v;i++){
+	    cout<<color[i]<<" ";
+	     	}
+	return 0;
+}
