@@ -1,0 +1,17 @@
+#Ý tưởng: ứng với mỗi công việc đi tìm máy làm nhanh nhất
+n,m=map(int, input().split()) 
+temp,Max,b,index=[],[],[],[]
+for i in range(m):
+	temp.append([int(n) for n in input().split()])
+	b.append(0)
+	Max.append(0)
+for j in range(n):
+	for i in range(m):
+		b[i]=b[i]+temp[i][j]
+		Max[i]=max(b)
+		b[i]=b[i]-temp[i][j]
+	indx=Max.index(min(Max))
+	b[indx]=b[indx]+temp[indx][j]
+	index.append(indx)
+for i in index:
+	print(i,end=" ")
