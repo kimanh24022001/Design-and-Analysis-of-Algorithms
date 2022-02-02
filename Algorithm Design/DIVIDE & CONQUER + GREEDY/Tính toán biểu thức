@@ -1,4 +1,4 @@
-Cho một biểu thức toán học chỉ chứa số nguyên và các toán tử cộng, trừ, nhân. Dĩ nhiên các phép toán này có thứ tự ưu tiên riêng tuy
+DỀ BÀI: Cho một biểu thức toán học chỉ chứa số nguyên và các toán tử cộng, trừ, nhân. Dĩ nhiên các phép toán này có thứ tự ưu tiên riêng tuy
 nhiên ta có thể thay đổi thứ tự này bằng cách đặt dấu ngoặc vào các vị trí phù hợp. Hãy tìm tất cả các giá trị có thể có của biểu thức 
 khi ta thay đổi thứ tự các phép toán
 
