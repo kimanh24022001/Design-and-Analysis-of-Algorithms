@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+#define N 20
+#define ll long long
+#define fort(i,a,b) for (int i=(a); i<=(b); ++i)
+
+using namespace std;
+
+int n, a[N], check[N][N];
+char c[N];
+string s;
+vector<ll> f[N][N];
+
+ll get(ll x, ll y, char frag){
+    if (frag == '+') return x+y;
+    if (frag == '*') return x*y;
+    return x-y;
+}
+
+vector<ll> lui(int i, int j){
+    if (i==j){
+        vector<ll> ans;
+        ans.clear();
+        ans.push_back(a[i]);
+        return ans;
+    }
+    if (check[i][j] != -1) return f[i][j];
+    vector<ll> l, r, ans;
+    ans.clear();
+    fort(h, i, j-1){
+        l = lui(i,h);
+        r = lui(h+1, j);
+        for (auto x : l)
+            for (auto y : r)
+                ans.push_back(get(x, y, c[h]));
+    }
+    check[i][j] = 1;
+    return f[i][j] = ans;
+}
+
+int main()
+{
+    cin>>s;
+    int t = 0;
+    n=0;
+    fort(i,0,s.length() - 1){
+        if (s[i] >= '0' && s[i] <= '9')
+            t = t*10 + s[i] - '0';
+        else{
+            n++;
+            a[n] = t;
+            c[n] = s[i];
+            t=0;
+        }
+    }
+    n++;
+    a[n] = t;
+    memset(check, -1, sizeof(check));
+    lui(1,n);
+    sort(f[1][n].begin(), f[1][n].end());
+    for (auto item : f[1][n])
+        cout<<item<<"\n";
+
+    return 0;
+}
