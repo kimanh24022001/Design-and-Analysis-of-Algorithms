@@ -1,4 +1,4 @@
-Có n công việc, được phân công cho m máy như nhau thực hiện đồng thời. Hãy viết chương trình dùng kỹ thuật THAM LAM
+ĐÈ BÀI: Có n công việc, được phân công cho m máy như nhau thực hiện đồng thời. Hãy viết chương trình dùng kỹ thuật THAM LAM
 để tìm một phương án phân công sao cho thời gian để các máy hoàn thành hết n công việc là ngắn nhất.
 
 INPUT
