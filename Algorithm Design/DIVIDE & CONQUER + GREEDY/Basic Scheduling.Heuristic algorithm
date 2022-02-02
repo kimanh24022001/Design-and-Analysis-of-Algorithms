@@ -1,3 +1,18 @@
+Có n công việc, được phân công cho m máy như nhau thực hiện đồng thời. Hãy viết chương trình dùng kỹ thuật THAM LAM
+để tìm một phương án phân công sao cho thời gian để các máy hoàn thành hết n công việc là ngắn nhất.
+
+INPUT
+
+Dòng đầu tiên chứa hai số n và m
+
+Dòng thứ hai chứa n số nguyên dương x0, x1, …, xn-1 trong đó xi là thời gian cần thiết để một máy hoàn thành công việc i.
+
+ 
+
+OUTPUT
+
+Xuất trên một dòng n số nguyên dương y0, y1, …,yn-1, giá trị mỗi số trong đoàn [0, m-1] trong đó giá trị của yi là số thứ 
+tự của máy được phân công để thực hiện công việc i.
 n,m=map(int, input().split()) 
 temp=[int(n) for n in input().split()]
 a=sorted(temp)   #lưu mảng thời gian cv đã được sx
