@@ -1,0 +1,101 @@
+#include <bits/stdc++.h>
+#define N 120005
+#define MAXN 300005
+#define ll long long
+#define fort(i,a,b) for (int i=(a); i<=(b); ++i)
+
+using namespace std;
+typedef pair<int,int> ii;
+
+int n, x[N], y[N], h[N], p[N], u[N], v[N];
+vector<ii> ans;
+vector<int> nen;
+
+struct Node {
+    int lazy;
+    int val;
+} nodes[MAXN * 4];
+
+void down(int id) {
+    int t = nodes[id].lazy;
+    nodes[id*2].lazy = max(t, nodes[id*2].lazy);
+    nodes[id*2].val = max(t, nodes[id*2].val);
+
+    nodes[id*2+1].lazy = max(t, nodes[id*2+1].lazy);
+    nodes[id*2+1].val = max(t, nodes[id*2+1].val);
+
+    nodes[id].lazy = 0;
+}
+
+void update(int id, int l, int r, int u, int v, int val) {
+    if (v < l || r < u) {
+        return ;
+    }
+    if (u <= l && r <= v) {
+        nodes[id].val = max(val, nodes[id].val);
+        nodes[id].lazy = max(val, nodes[id].lazy);
+        return ;
+    }
+    int mid = (l + r) / 2;
+
+    down(id);
+
+    update(id*2, l, mid, u, v, val);
+    update(id*2+1, mid+1, r, u, v, val);
+
+    nodes[id].val = max(nodes[id*2].val, nodes[id*2+1].val);
+}
+
+int get(int id, int l, int r, int u, int v) {
+    if (v < l || r < u) {
+        return -INFINITY;
+    }
+    if (u <= l && r <= v) {
+        return nodes[id].val;
+    }
+    int mid = (l + r) / 2;
+    down(id);
+
+    return max(get(id*2, l, mid, u, v),
+        get(id*2+1, mid+1, r, u, v));
+}
+
+
+int main()
+{
+    //freopen("t.inp", "r", stdin);
+   // freopen("t.out", "w", stdout);
+    cin>>n;
+    fort(i,1,n){
+        cin>>u[i]>>v[i]>>h[i];
+        nen.push_back(u[i]);
+        nen.push_back(v[i]);
+    }
+    sort(nen.begin(), nen.end());
+
+    fort(i,1,n){
+        x[i] = lower_bound(nen.begin(), nen.end(), u[i]) - nen.begin() + 1;
+        y[i] = lower_bound(nen.begin(), nen.end(), v[i]) - nen.begin() + 1;
+        update(1, 1, MAXN, x[i], y[i]-1, h[i]);
+        ans.push_back(ii(x[i], 0));
+        ans.push_back(ii(y[i], 1));
+    }
+
+    sort(ans.begin(), ans.end());
+
+    int nho = -1, dem=0;
+    for (auto item : ans){
+        if (item.second == 0) dem ++; else dem --;
+        if (dem == 0){
+            cout<<nen[item.first - 1]<<" "<<0<<"\n";
+        } else{
+            int ma = get(1, 1, MAXN, item.first, item.first);
+            if (ma != nho){
+                cout<<nen[item.first - 1]<<" "<<ma<<"\n";
+                nho = ma;
+            }
+        }
+    }
+
+    return 0;
+}
